@@ -14,7 +14,7 @@ if (file_exists(__DIR__ . '/../../../autoload.php')) {
 function shutdown() {
   echo "EXITED\n";
 }
-register_shutdown_function(shutdown');
+register_shutdown_function('shutdown');
 
 $commands = fopen('php://stdin', 'r');
 $lastExitCode = 0;
