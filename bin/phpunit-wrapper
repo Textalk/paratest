@@ -11,6 +11,11 @@ if (file_exists(__DIR__ . '/../../../autoload.php')) {
     require_once __DIR__ . '/../../../autoload.php';
 }
 
+function shutdown() {
+  echo "EXITED\n";
+}
+register_shutdown_function(shutdown');
+
 $commands = fopen('php://stdin', 'r');
 $lastExitCode = 0;
 while (true) {
@@ -23,7 +28,6 @@ while (true) {
     }
     $command = rtrim($command);
     if ($command === 'EXIT') {
-        echo "EXITED\n";
         exit($lastExitCode);
     }
     echo "Executing: $command\n";
